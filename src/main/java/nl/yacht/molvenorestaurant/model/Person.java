@@ -3,6 +3,8 @@ package nl.yacht.molvenorestaurant.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Person implements Serializable {
 
@@ -11,6 +13,9 @@ public class Person implements Serializable {
     private String firstName;
     private String lastName;
     private int yearOfBirth;
+
+
+    private LocalDateTime birthTime;
 
     public Person(String firstName, String lastName, int yearOfBirth) {
         this.firstName = firstName;
@@ -52,5 +57,13 @@ public class Person implements Serializable {
 
     public void setYearOfBirth(int yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public LocalDateTime getBirthTime() {
+        return birthTime;
+    }
+
+    public void setBirthTime(LocalDateTime birthTime) {
+        this.birthTime = birthTime;
     }
 }
