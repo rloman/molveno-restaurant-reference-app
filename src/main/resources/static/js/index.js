@@ -2,7 +2,7 @@
 
 // instead of started .. and mostly done ...
 
-var baseUrl = "http://localhost:8080/api"
+var baseUrl = "http://localhost:8080/api/"
 
 $(document).ready(function() {
      console.log("Ready ... page loaded");
@@ -14,7 +14,7 @@ $(document).ready(function() {
      $("#updateButton").click(function() {
         $.ajax({
                 // waar moet hij de request op uitvoeren
-                url : "http://localhost:8080/api/persons",
+                url : baseUrl+"persons",
                 // type actie
                 type : "get",
                 // als de actie lukt, voer deze functie uit
