@@ -1,39 +1,108 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>:: Welcome at our first landing page ::</title>
     <meta charset="UTF-8">
-
-
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-
-    <style>
-
-        p.inleiding {
-            color: white;
-        }
-    </style>
-
-
+    <title>:: Restaurant ::</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-
-
-
 
 <body>
 
+<!--Inladen menu-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-faded" id="navigation" >
+    <a class="navbar-brand" href="index.html"><img class="d-inline-block align-top"
+                                                   style="width:50px;"
+                                                   src="logo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<p class="inleiding">Inleiding</p> <!-- inline style element  (best wel lelijk en tegen de regels) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="bookings.html">Booking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="guests.html">Guests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="rooms.html">Rooms<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<p class="hoofdstuk">Hoofdstuk 1</p>
 
-<p class="hoofdstuk">Hoofdstuk 2</p>
+<!--Background image container-->
+<div class="container-fluid" id="background-image">
 
-<p class="hoofdstuk">Hoofdstuk 3</p>
 
-<p class="hoofdstuk" id="slot" style="color: red;">Slot</p>
+    <div class="container-fluid welcome">
+        <h1>Welcome</h1>
+    </div>
+    <div class="container" id="cardDesign">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header"><h5 class="card-title">Bookings</h5></div>
+                    <div class="card-body">
 
+                        <p class="card-text">Here you can create, search for or edit bookings.</p>
+
+                        <a href="bookings.html" class="btn btn-primary cardButton">Go to bookings</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header"> <h5 class="card-title">Guests</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text">Here you can add, search for or edit guests. &nbsp;</p>
+                        <a href="guests.html" class="btn btn-primary cardButton">Go to guests</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header"> <h5 class="card-title">Rooms</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text">Here you can create, search for or edit rooms.</p>
+
+                        <a href="rooms.html" class="btn btn-primary cardButton">Go to rooms</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>
+
