@@ -12,10 +12,6 @@ public class Person implements Serializable {
     private String lastName;
     private int yearOfBirth;
 
-    public long getId() {
-        return id;
-    }
-
     public Person(String firstName, String lastName, int yearOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,6 +20,14 @@ public class Person implements Serializable {
 
     public Person() {
 
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getFirstName() {

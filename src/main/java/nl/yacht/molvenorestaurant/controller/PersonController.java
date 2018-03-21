@@ -2,6 +2,8 @@ package nl.yacht.molvenorestaurant.controller;
 
 
 import nl.yacht.molvenorestaurant.model.Person;
+import nl.yacht.molvenorestaurant.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,18 +11,38 @@ import org.springframework.web.bind.annotation.*;
 public class PersonController {
 
 
+    @Autowired
+    private PersonRepository personRepository;
+
+
     @GetMapping
-    public Person getAll() {
+    public Iterable<Person> findAll() {
 
-        Person result = new Person("Wouter", "Dekker", 1988);
+        Iterable<Person> persons = this.personRepository.findAll();
 
-        return result;
+        return persons;
+    }
+
+    @GetMapping(value="{id}")
+    public Person findById(@PathVariable long id){
+        return this.personRepository.findById(id);
+    }
+
+    @PutMapping(value="{id}")
+    public Person update(@PathVariable long id, @RequestBody Person input) {
+
+        return this.personRepository.update(id, input);
+
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable long id) {
+        this.personRepository.delete(id);
     }
 
     @PostMapping
-    public void save(@RequestBody Person person) {
-        System.err.println(person.getFirstName());
-        System.err.println(person.getLastName());
-        System.err.println(person.getYearOfBirth());
+    public Person save(@RequestBody Person person) {
+
+        return this.personRepository.save(person);
     }
 }
