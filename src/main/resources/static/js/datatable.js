@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('#example').DataTable( {
-        ajax: {
+        "order": [[ 2, "asc" ]],
+        "ajax": {
                 url: 'http://localhost:8080/api/persons',
                 dataSrc: ''
             },
