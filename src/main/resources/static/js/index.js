@@ -32,6 +32,27 @@ $(document).ready(function() {
                 }
             });
      });
+
+     $("#addButton").click(function() {
+
+            var jsonObject = {
+                firstName: $("#firstName").val(),
+                lastName: $("#lastName").val(),
+                yearOfBirth: Number($("#yearOfBirth").val())
+            };
+             $.ajax({
+                    contentType : "application/json",
+                     // waar moet hij de request op uitvoeren
+                     url : baseUrl+"persons",
+                     // type actie
+                     type : "post",
+                     data: JSON.stringify(jsonObject),
+                     // als de actie lukt, voer deze functie uit
+                     success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
+                          console.log(data);
+                     }
+                 });
+          });
 });
 
 function started() {
