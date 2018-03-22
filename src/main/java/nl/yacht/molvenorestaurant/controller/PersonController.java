@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 @RequestMapping("api/persons")
 public class PersonController {
@@ -18,6 +20,14 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
+
+    @PostConstruct
+    public void someData() {
+        for(int i = 0;i<3;i++) {
+            Person one = new Person("Raymond", "Loman", Double.valueOf(Math.random()*3000).intValue());
+            this.personRepository.save(one);
+        }
+    }
 
     @GetMapping
     public Iterable<Person> findAll() {
