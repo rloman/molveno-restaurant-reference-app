@@ -7,10 +7,7 @@ $(document).ready(function() {
         "columns": [
             { "data": "lastName" },
             { "data": "firstName" },
-            { "data": "yearOfBirth" },
-            { "data": "lastName" },
-            { "data": "yearOfBirth" },
-            { "data": "firstName" }
+            { "data": "yearOfBirth" }
         ]
     } );
 } );
