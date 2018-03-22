@@ -4,11 +4,15 @@ package nl.yacht.molvenorestaurant.controller;
 import nl.yacht.molvenorestaurant.model.Person;
 import nl.yacht.molvenorestaurant.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/persons")
 public class PersonController {
+
+    @Value("${firstName}")
+    private String voornaam;
 
 
     @Autowired
@@ -18,17 +22,26 @@ public class PersonController {
     @GetMapping
     public Iterable<Person> findAll() {
 
+        final boolean demo = false;
+
         Iterable<Person> persons = this.personRepository.findAll();
+
+        if (demo) {
+            for (Person p : persons) {
+                p.setFirstName(this.voornaam);
+            }
+        }
+
 
         return persons;
     }
 
-    @GetMapping(value="{id}")
-    public Person findById(@PathVariable long id){
+    @GetMapping(value = "{id}")
+    public Person findById(@PathVariable long id) {
         return this.personRepository.findById(id);
     }
 
-    @PutMapping(value="{id}")
+    @PutMapping(value = "{id}")
     public Person update(@PathVariable long id, @RequestBody Person input) {
 
         return this.personRepository.update(id, input);
