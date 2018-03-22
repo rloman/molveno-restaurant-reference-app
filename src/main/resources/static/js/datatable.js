@@ -1,13 +1,16 @@
 $(document).ready(function() {
     $('#example').DataTable( {
-        "ajax": "data/objects.txt",
+        ajax: {
+                url: 'http://localhost:8080/api/persons',
+                dataSrc: ''
+            },
         "columns": [
-            { "data": "name" },
-            { "data": "position" },
-            { "data": "office" },
-            { "data": "extn" },
-            { "data": "start_date" },
-            { "data": "salary" }
+            { "data": "lastName" },
+            { "data": "firstName" },
+            { "data": "yearOfBirth" },
+            { "data": "lastName" },
+            { "data": "yearOfBirth" },
+            { "data": "firstName" }
         ]
     } );
 } );
