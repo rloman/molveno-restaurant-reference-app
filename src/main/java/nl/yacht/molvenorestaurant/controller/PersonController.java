@@ -24,7 +24,7 @@ public class PersonController {
     @PostConstruct
     public void someData() {
         for(int i = 0;i<3;i++) {
-            Person one = new Person("Raymond", "Loman", 1968);
+            Person one = new Person("Raymond", "Loman", Double.valueOf(Math.random()*3000).intValue());
             this.personRepository.save(one);
         }
     }

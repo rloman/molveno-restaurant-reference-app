@@ -24,15 +24,13 @@ $(document).ready(function() {
 
                 	$.each(data, function(index, current){ // index (the index starting from 0, current: the current object of the iterable
 
-                		guestList += createQuestString(current);
+                		guestList += createGuestString(current);
 
                 	});
 
                 	$("#guestList").html(guestList);
                 }
             });
-
-
      });
 });
 
@@ -46,8 +44,8 @@ $("p").hide();
 
 }
 
-function createQuestString(quest) {
- result = "<tr><td>"+quest.firstName+"</td><td>"+quest.lastName+"</td><td>"+quest.yearOfBirth+"</td></tr>";//composeGuestString(current);
+function createGuestString(guest) {
+ result = "<tr><td>"+guest.firstName+"</td><td>"+guest.lastName+"</td><td>"+guest.yearOfBirth+"</td></tr>";
 
   return result;
 }
