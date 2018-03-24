@@ -1,16 +1,8 @@
 $(document).ready(function() {
-    $('#guestTable').DataTable( {
-        "order": [[ 2, "asc" ]],
-        "ajax": {
-                url: 'http://localhost:8080/api/persons',
-                dataSrc: ''
-            },
-        "columns": [
-            { "data": "lastName" },
-            { "data": "firstName" },
-            { "data": "yearOfBirth" }
-        ]
-    } );
+
+        getData();
+
+
     // Functionality for interaction when clicking on rows of the table
         $('#guestTable tbody').on( 'click', 'tr', function () {
             if ( $(this).hasClass('selected') ) {
@@ -27,6 +19,36 @@ $(document).ready(function() {
         });
 
 } );
+
+function getData() {
+$('#guestTable').DataTable( {
+        "order": [[ 2, "asc" ]],
+        "ajax": {
+                url: 'http://localhost:8080/api/persons',
+                dataSrc: ''
+            },
+        "columns": [
+            { "data": "lastName" },
+            { "data": "firstName" },
+            { "data": "yearOfBirth" }
+        ]
+    } );
+}
+
+function getUpdate() {
+      var api = "http://localhost:8080/api/persons";
+        $.get(api, function(data){
+            if (data){
+                setData(data);
+            }
+        });
+}
+
+function setData(data){
+    $("#guestTable").DataTable().clear();
+    $("#guestTable").DataTable().rows.add(data);
+    $("#guestTable").DataTable().columns.adjust().draw();
+}
 
 // Get the data of a guest using an id
 function apiGetSingleGuest(id){
@@ -88,6 +110,7 @@ function submitEdit(id){
         type:"put",
         data: JSON.stringify(formData),
         contentType: "application/json; charset=utf-8",
+        success: getUpdate,
         error: function(error){
             displayError(error);
         }
@@ -105,6 +128,7 @@ function submitDelete(){
         url:"/api/persons/" + guestNumber,
         type:"delete",
         data: JSON.stringify(formData),
+        success: getUpdate,
         contentType: "application/json; charset=utf-8"
     });
 
