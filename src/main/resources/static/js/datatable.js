@@ -43,21 +43,23 @@ function fillUpdateDiv(guest){
 
     console.log(guest);
     if(true) {
-        return; // for now rloman, later we will have the modal working
+//        return; // for now rloman, later we will have the modal working
     }
-    $("#btndelete").attr('onclick', 'submitDelete(' + guest.guestNumber + ');');
-    $("#btnsubmit").attr('onclick', 'submitEdit(' + guest.guestNumber + ');');
+    $("#btndelete").attr('onclick', 'submitDelete(' + guest.id + ');');
+    $("#btnsubmit").attr('onclick', 'submitEdit(' + guest.id + ');');
     document.getElementById("modal-title").innerHTML="Edit Guest";
     $("#firstName").val(guest.firstName);
-    $("#surName").val(guest.surName);
+    $("#lastName").val(guest.lastName);
+    /*
     $("#address").val(guest.address);
     $("#postalCode").val(guest.postalCode);
     $("#city").val(guest.city);
     $("#country").val(guest.country);
     $("#phoneNumber").val(guest.phoneNumber);
     $("#mailAddress").val(guest.mailAddress);
+    */
     $("#confirmbutton").css('display', 'inline-block');
-    deleteID = guest.guestNumber;
+    deleteID = guest.id;
     var elem = '<button type="button" class="btn btn-danger" onclick="submitDelete();">Confirm delete</button>';
     $('#confirmbutton').popover({
         animation:true,
@@ -71,5 +73,41 @@ function fillUpdateDiv(guest){
 function deselect(){
     $('#guestTable tr.selected').removeClass('selected');
     // rloman dit moet straks terug. ik denk dat dit het modal form is
-//    document.getElementById("guestForm").reset();
+    document.getElementById("guestForm").reset();
+}
+
+// Submit the edited data in the form to the database
+function submitEdit(id){
+    var formData = $("#guestForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+    var guestNumber = id;
+    for(var key in formData){
+        if(formData[key] == "" || formData == null) delete formData[key];
+    }
+    $.ajax({
+        url:"/api/persons/" + guestNumber,
+        type:"put",
+        data: JSON.stringify(formData),
+        contentType: "application/json; charset=utf-8",
+        error: function(error){
+            displayError(error);
+        }
+    });
+    deselect();
+    $('#myModal').modal('toggle');
+}
+
+// Delete the guest in the database with the corresponding id
+function submitDelete(){
+    console.log("Deleting");
+    var formData = $("#guestForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+    var guestNumber = deleteID;
+    $.ajax({
+        url:"/api/persons/" + guestNumber,
+        type:"delete",
+        data: JSON.stringify(formData),
+        contentType: "application/json; charset=utf-8"
+    });
+
+    $('#myModal').modal('toggle');
+    deselect();
 }
