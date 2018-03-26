@@ -14,6 +14,4 @@ public class HomeController {
     public String home(Map<String, Object> model){
         return "index";
     }
-
-    
 }
