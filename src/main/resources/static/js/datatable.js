@@ -60,9 +60,6 @@ function apiGetSingleGuest(id){
 function fillUpdateDiv(guest){
 
     console.log(guest);
-    if(true) {
-//        return; // for now rloman, later we will have the modal working
-    }
     $("#btndelete").attr('onclick', 'submitDelete(' + guest.id + ');');
     $("#btnsubmit").attr('onclick', 'submitEdit(' + guest.id + ');');
     document.getElementById("modal-title").innerHTML="Edit Guest";
@@ -96,7 +93,10 @@ function deselect(){
 
 // Submit the edited data in the form to the database
 function submitEdit(id){
+// shortcut for filling the formData as a JavaScript object with the fields in the form
+    console.log("Formdata");
     var formData = $("#guestForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+    console.log(formData);
     var guestNumber = id;
     for(var key in formData){
         if(formData[key] == "" || formData == null) delete formData[key];
