@@ -6,6 +6,7 @@ $(document).ready(function() {
         counter = counter >100 ? 100 : counter;
         $("#progressBar").html(""+counter+"%");
         $("#progressBar").css("width", ""+counter+"%");
+        $("#progressBar").addClass("active");
     });
 
       $("#delayButton").click(function() {
