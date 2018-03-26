@@ -11,6 +11,8 @@ $(document).ready(function() {
         $("#test").hide();
      });
 
+     $("#addedPerson").hide();
+
      $("#updateButton").click(function() {
         $.ajax({
                 // waar moet hij de request op uitvoeren
@@ -49,6 +51,15 @@ $(document).ready(function() {
                      data: JSON.stringify(jsonObject),
                      // als de actie lukt, voer deze functie uit
                      success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
+
+                            $("#newId").html(data.id);
+                            $("#newFirstName").html(data.firstName);
+                            $("#newLastName").html(data.lastName);
+
+                            $("#addedPerson").show(1000);
+
+                            $("#addedPerson").hide(1000);
+
                           console.log(data);
                      }
                  });
