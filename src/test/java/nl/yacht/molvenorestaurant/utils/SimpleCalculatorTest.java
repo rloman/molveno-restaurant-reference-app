@@ -5,14 +5,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CalculatorTest {
+public class SimpleCalculatorTest {
 
-    private Calculator calculator;
+    private SimpleCalculator calculator;
 
 
     @Before
     public void setUp() {
-        this.calculator = new Calculator();
+        this.calculator = new SimpleCalculator();
     }
 
 
@@ -40,6 +40,11 @@ public class CalculatorTest {
         int product = this.calculator.multiply(11, 11);
 
         Assert.assertEquals(121, product);
+    }
+
+    @Test
+    public void testDivide() {
+        Assert.assertEquals(4, this.calculator.divide(16,4));
     }
 
     @After

@@ -1,19 +1,12 @@
 package nl.yacht.molvenorestaurant.utils;
 
-public class Calculator {
+public interface Calculator {
 
+    int add(int a, int b);
 
+    int subtract(int a, int b);
 
-    public int add(int a, int b) {
-        return a+b;
-    }
+    int multiply(int a, int b);
 
-    public int subtract(int a, int b) {
-        return a-b;
-    }
-
-    public int multiply(int a, int b) {
-
-        return a*b;
-    }
+    int divide(int a, int b);
 }
