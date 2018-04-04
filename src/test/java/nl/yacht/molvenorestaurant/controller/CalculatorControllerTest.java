@@ -39,5 +39,8 @@ public class CalculatorControllerTest {
         Assert.assertEquals("+", r.getOperator());
         Assert.assertEquals(7, r.getResult());
 
+        Mockito.verify(this.calculator, Mockito.times(1)).add(3,4);
+//        Mockito.verify(this.calculator, Mockito.times(2)).add(3,4); // fails
+
     }
 }
