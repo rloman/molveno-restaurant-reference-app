@@ -1,5 +1,6 @@
 package nl.yacht.molvenorestaurant.controller;
 
+import nl.yacht.molvenorestaurant.model.CalculatorResult;
 import nl.yacht.molvenorestaurant.utils.Calculator;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,12 +25,19 @@ public class CalculatorControllerTest {
     @Test
     public void testAddForController() {
 
+        // maak een loop als je dat wilt ...
 
         //mock it
        Mockito.when(this.calculator.add(3,4 )).thenReturn(7);
 
-        int result = this.controller.addSomeValues(3,4);
+       // do it
 
-        Assert.assertEquals(7, result);
+        CalculatorResult r = this.controller.addSomeValues(3,4);
+
+        Assert.assertEquals(3, r.getA());
+        Assert.assertEquals(4, r.getB());
+        Assert.assertEquals("+", r.getOperator());
+        Assert.assertEquals(7, r.getResult());
+
     }
 }
