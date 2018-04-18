@@ -1,5 +1,8 @@
 package nl.yacht.molvenorestaurant.utils;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SimpleCalculator implements Calculator {
 
 
