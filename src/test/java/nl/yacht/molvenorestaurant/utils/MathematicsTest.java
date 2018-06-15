@@ -1,11 +1,13 @@
 package nl.yacht.molvenorestaurant.utils;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Ignore
 public class MathematicsTest {
 
     // in unittest terms this is called a Fixture ... that is OK
