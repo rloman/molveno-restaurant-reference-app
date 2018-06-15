@@ -14,6 +14,8 @@ public class Person implements Serializable {
     private String lastName;
     private int yearOfBirth;
 
+    private String address;
+
 
     private LocalDateTime birthTime;
 
@@ -65,5 +67,13 @@ public class Person implements Serializable {
 
     public void setBirthTime(LocalDateTime birthTime) {
         this.birthTime = birthTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

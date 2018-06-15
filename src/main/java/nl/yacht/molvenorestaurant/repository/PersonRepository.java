@@ -35,6 +35,7 @@ public class PersonRepository {
         output.setFirstName(input.getFirstName());
         output.setLastName(input.getLastName());
         output.setYearOfBirth(input.getYearOfBirth());
+        output.setAddress(input.getAddress());
 
         // and so on ... if you have more fields
 
