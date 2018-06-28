@@ -21,14 +21,7 @@ public class PersonController {
     private PersonRepository personRepository;
 
 
-    @PostConstruct
-    public void someData() {
-        for(int i = 0;i<30;i++) {
-            char c = (char) (i+65);
-            Person one = new Person(c+"Jan", "Willemsen", Double.valueOf(Math.random()*3000).intValue());
-            this.personRepository.save(one);
-        }
-    }
+
 
     @GetMapping
     public Iterable<Person> findAll() {

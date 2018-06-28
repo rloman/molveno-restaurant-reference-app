@@ -65,8 +65,8 @@ function fillUpdateDiv(guest){
     document.getElementById("modal-title").innerHTML="Edit Guest";
     $("#firstName").val(guest.firstName);
     $("#lastName").val(guest.lastName);
-    /*
     $("#address").val(guest.address);
+     /*
     $("#postalCode").val(guest.postalCode);
     $("#city").val(guest.city);
     $("#country").val(guest.country);

@@ -56,9 +56,9 @@ $(document).ready(function() {
                             $("#newFirstName").html(data.firstName);
                             $("#newLastName").html(data.lastName);
 
-                            $("#addedPerson").show(1000);
+                            $("#addedPerson").show(2000);
 
-                            $("#addedPerson").hide(1000);
+                            $("#addedPerson").hide(2000);
 
                           console.log(data);
                      }
