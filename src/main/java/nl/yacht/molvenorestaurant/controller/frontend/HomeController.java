@@ -15,7 +15,7 @@ entered URL
 You ONLY use it for Mustache ...
  */
 @Controller
-@RequestMapping(value="/")
+@RequestMapping(value = "/")
 public class HomeController {
 
     // when I type in: http://localhost:8080/
@@ -24,28 +24,28 @@ public class HomeController {
     // of the file index.html
     // while rendering the header and footer in using the
     // mustache operator ( {{>header}} and {{>footer}}
-    @RequestMapping(value="/home", method= RequestMethod.GET)
-    public String home(Map<String, Object> model){
+    @RequestMapping(method = RequestMethod.GET)
+    public String home(Map<String, Object> model) {
         return "index";
     }
 
-    @RequestMapping(value="/postget", method= RequestMethod.GET)
-    public String jqueryPostGet(Map<String, Object> model){
+    @RequestMapping(value = "/postget", method = RequestMethod.GET)
+    public String jqueryPostGet(Map<String, Object> model) {
         return "jquery-post-get";
     }
 
-    @RequestMapping(value="/bootstrap", method= RequestMethod.GET)
-    public String bootstrap(Map<String, Object> model){
+    @RequestMapping(value = "/bootstrap", method = RequestMethod.GET)
+    public String bootstrap(Map<String, Object> model) {
         return "bootstrap-progress";
     }
 
-    @RequestMapping(value="/jquery-demo", method= RequestMethod.GET)
-    public String jQueryDemo(Map<String, Object> model){
-        return "jquery-demo";
+    @RequestMapping(value = "/bootstrap2", method = RequestMethod.GET)
+    public String bootstrap2(Map<String, Object> model) {
+        return "bootstrap2";
     }
 
-    @RequestMapping(value="/bootstrap2", method= RequestMethod.GET)
-    public String bootstrap2(Map<String, Object> model){
-        return "bootstrap2";
+    @RequestMapping(value = "/jquery-demo", method = RequestMethod.GET)
+    public String jQueryDemo(Map<String, Object> model) {
+        return "jquery-demo";
     }
 }

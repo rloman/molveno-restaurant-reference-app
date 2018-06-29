@@ -2,7 +2,7 @@
 
 // instead of started .. and mostly done ...
 
-var baseUrl = "http://pcsjanneke:8080/api/"
+var baseUrl = "http://localhost:8080/api/"
 
 $(document).ready(function() {
      console.log("Ready ... page loaded");
