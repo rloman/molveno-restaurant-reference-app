@@ -1,20 +1,33 @@
 {{>header}}
-<table id="guestTable" class="display" style="width:100%">
-    <thead>
-    <tr>
-        <th>Lastname</th>
-        <th>Firstname</th>
-        <th>Year of Birth</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-        <th>Lastname</th>
-        <th>Firstname</th>
-        <th>Year of Birth</th>
-    </tr>
-    </tfoot>
-</table>
+
+<div id="container">
+    <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+            <table id="guestTable" class="display" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Year of Birth</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Year of Birth</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -46,10 +59,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
-                <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
-                <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
+                <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover"
+                   data-placement="top" class="btn btn-danger">Delete</a>
+                <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">
+                    Close
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 {{>footer}}
