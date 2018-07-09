@@ -11,6 +11,7 @@ $(document).ready(function() {
                     { "data": "firstName" },
                     { "data": "yearOfBirth" }
                 ]
+
          } );
 
 
@@ -32,18 +33,7 @@ $(document).ready(function() {
 } );
 
 function getData() {
-      var api = "http://localhost:8080/api/persons";
-        $.get(api, function(data){
-            if (data){
-                setData(data);
-            }
-        });
-}
-
-function setData(data){
-    $("#guestTable").DataTable().clear();
-    $("#guestTable").DataTable().rows.add(data);
-    $("#guestTable").DataTable().columns.adjust().draw();
+       $("#guestTable").dataTable().api().ajax.reload();
 }
 
 // Get the data of a guest using an id
