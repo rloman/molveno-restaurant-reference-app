@@ -14,31 +14,54 @@ $(document).ready(function() {
      $("#addedPerson").hide();
 
      $("#updateButton").click(function() {
+         reloadData();
+
+     });
+
+// hier is de addButton
+     $("#addButton").click(function() {
+        insertNewPerson();
+     });
+
+});
+
+function started() {
+      console.log("Ready ... page loaded");
+}
+
+function hideSome() {
+
+$("p").hide();
+
+}
+
+function reloadData() {
+
         $.ajax({
                 // waar moet hij de request op uitvoeren
                 url : baseUrl+"persons",
                 // type actie
                 type : "get",
                 // als de actie lukt, voer deze functie uit
-                success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
+                success: function(data) {
+                let guestList = "";
 
-                	guestList = "";
+                        $.each(data, function(index, current){ // index (the index starting from 0, current: the current object of the iterable
 
-                	$.each(data, function(index, current){ // index (the index starting from 0, current: the current object of the iterable
+                            guestList += createGuestString(current);
 
-                		guestList += createGuestString(current);
+                        });
 
-                	});
-
-                	$("#guestList").html(guestList);
+                        $("#guestList").html(guestList);
                 }
             });
-     });
 
-// hier is de addButton
-     $("#addButton").click(function() {
 
-            var jsonObject = {
+}
+
+function insertNewPerson() {
+
+        var jsonObject = {
                 firstName: $("#firstName").val(),
                 lastName: $("#lastName").val(),
                 yearOfBirth: Number($("#yearOfBirth").val())
@@ -56,29 +79,15 @@ $(document).ready(function() {
                             $("#newId").html(data.id);
                             $("#newFirstName").html(data.firstName);
                             $("#newLastName").html(data.lastName);
+                            $("#newYearOfBirth").html(data.yearOfBirth);
 
                             $("#addedPerson").show(2000);
 
-                            $("#addedPerson").hide(2000);
+                            $("#addedPerson").hide(2000, reloadData);
 
                           console.log(data);
                      }
                  });
-          });
-
-});
-
-function started() {
-      console.log("Ready ... page loaded");
-}
-
-function hideSome() {
-
-$("p").hide();
-
-}
-
-function reloadData() {
 }
 
 function createGuestString(guest) {
