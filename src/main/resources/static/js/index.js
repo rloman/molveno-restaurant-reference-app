@@ -35,6 +35,7 @@ $(document).ready(function() {
             });
      });
 
+// hier is de addButton
      $("#addButton").click(function() {
 
             var jsonObject = {
@@ -64,6 +65,7 @@ $(document).ready(function() {
                      }
                  });
           });
+
 });
 
 function started() {
@@ -74,6 +76,9 @@ function hideSome() {
 
 $("p").hide();
 
+}
+
+function reloadData() {
 }
 
 function createGuestString(guest) {

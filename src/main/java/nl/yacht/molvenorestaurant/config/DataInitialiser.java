@@ -18,7 +18,7 @@ public class DataInitialiser {
     @PostConstruct
     public void someData() {
         Faker faker = new Faker();
-        for(int i = 0;i<30;i++) {
+        for(int i = 0;i<5;i++) {
             Person one = new Person(faker.name().firstName(), faker.name().lastName(), faker.number().numberBetween(1968, LocalDate.now().getYear()));
             this.personRepository.save(one);
         }
